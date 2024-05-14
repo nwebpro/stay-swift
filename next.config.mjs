@@ -9,6 +9,9 @@ const nextConfig = {
 			{
 				hostname: 'www.pngall.com',
 			},
+			{
+				hostname: 'a0.muscache.com',
+			},
 		],
 	},
 };
