@@ -2,7 +2,10 @@ import { auth } from '@/auth';
 import PaymentForm from '@/components/Payment/PaymentForm';
 import { redirect } from 'next/navigation';
 
-const Payment = async () => {
+const Payment = async ({
+	params: { hotelId },
+	searchParams: { checkin, checkout },
+}) => {
 	const session = await auth();
 	if (!session) {
 		redirect('/login');
