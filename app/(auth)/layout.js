@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import '../globals.css';
 import Header from '@/components/Header';
+import { dbConnect } from '@/service/mongo';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,7 +10,8 @@ export const metadata = {
 	description: 'One Place Stop for Hospitably',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+	await dbConnect();
 	return (
 		<html lang="en">
 			<body className={inter.className}>
