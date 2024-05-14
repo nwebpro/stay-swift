@@ -26,7 +26,9 @@ const LoginForm = () => {
 	return (
 		<>
 			{error && (
-				<div className="text-xl text-red-500 text-center">{error}</div>
+				<div className="text-xl text-red-500 text-center">
+					{error && error}
+				</div>
 			)}
 			<form onSubmit={onSubmit} className="login-form">
 				<div>

@@ -4,6 +4,7 @@ import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import mongoClientPromise from './database/mongoClientPromise';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { userModel } from './models/user';
+import bcrypt from 'bcryptjs';
 
 export const {
 	handlers: { GET, POST },
@@ -30,7 +31,10 @@ export const {
 						email: credentials.email,
 					});
 					if (user) {
-						const isMatch = user?.password === credentials.password;
+						const isMatch = await bcrypt.compare(
+							credentials.password,
+							user.password
+						);
 						if (isMatch) {
 							return user;
 						} else {
