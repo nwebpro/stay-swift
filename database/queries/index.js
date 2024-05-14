@@ -2,6 +2,7 @@ import { bookingModel } from '@/models/booking';
 import { hotelModel } from '@/models/hotel';
 import { ratingModel } from '@/models/rating';
 import { reviewModel } from '@/models/review';
+import { userModel } from '@/models/user';
 import {
 	isDateInBetween,
 	replaceMongoIdInArray,
@@ -87,4 +88,9 @@ export const getHotelById = async (hotelId, checkin, checkout) => {
 		}
 	}
 	return replaceMongoIdInObject(hotelDetails);
+};
+
+export const getUserByEmail = async (email) => {
+	const users = await userModel.find({ email: email }).lean();
+	return replaceMongoIdInObject(users[0]);
 };

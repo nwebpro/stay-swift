@@ -6,7 +6,7 @@ const Review = async ({ id }) => {
 	return (
 		<>
 			{reviews.length === 0 ? (
-				<Link href={`$`} className="underline">
+				<Link href={`#`} className="underline">
 					Be the first one to review
 				</Link>
 			) : (
