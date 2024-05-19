@@ -1,4 +1,4 @@
-import { bookingModel } from '@/models/booking-model';
+import { bookingModel } from '@/models/booking';
 import { dbConnect } from '@/service/mongo';
 import { NextResponse } from 'next/server';
 

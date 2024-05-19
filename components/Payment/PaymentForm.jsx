@@ -16,6 +16,7 @@ const PaymentForm = ({ loggedInUser, hotelInfo, checkin, checkout }) => {
 			const userId = loggedInUser?.id;
 			const checkin = formData.get('checkin');
 			const checkout = formData.get('checkout');
+
 			const res = await fetch('/api/auth/payment', {
 				method: 'POST',
 				headers: {
@@ -34,6 +35,9 @@ const PaymentForm = ({ loggedInUser, hotelInfo, checkin, checkout }) => {
 			setError(error.message);
 		}
 	}
+
+	//console.log(loggedInUser);
+	//console.log(hotelInfo);
 
 	return (
 		<form className="my-8" onSubmit={onSubmit}>

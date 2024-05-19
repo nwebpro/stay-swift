@@ -3,9 +3,9 @@ import Rating from './Rating';
 import Review from './Review';
 
 const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
-	let params = '';
+	let paramsItem = '';
 	if (checkin && checkout) {
-		params = `?checkin=${checkin}&checkout=${checkout}`;
+		paramsItem = `?checkin=${checkin}&checkout=${checkout}`;
 	}
 	return (
 		<>
@@ -37,9 +37,12 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
 					${(info?.highRate + info?.lowRate) / 2}/night
 				</h2>
 				<p className=" text-right">Per Night for 1 Room</p>
+				<h2>
+					{checkin} | {checkout}
+				</h2>
 				{fromListPage ? (
 					<Link
-						href={`/hotels/${info?.id}${params}`}
+						href={`/hotels/${info?.id}${paramsItem}`}
 						className="btn-primary "
 					>
 						Details
@@ -49,7 +52,7 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
 						href={
 							info?.isBooked
 								? '#'
-								: `/hotels/${info?.id}/payment${params}`
+								: `/hotels/${info?.id}/payment${paramsItem}`
 						}
 						className={
 							info?.isBooked ? 'btn-disabled' : 'btn-primary'
